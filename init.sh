@@ -1,7 +1,35 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# --- detecta gerenciador de pacotes ---
+# --- detecta OS e gerenciador de pacotes ---
+OS=$(uname -s)
+
+if [ "$OS" = "Darwin" ]; then
+    echo "==> macOS detectado"
+
+    if ! command -v brew &>/dev/null; then
+        echo "==> Instalando Homebrew..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+
+    echo "==> Instalando tmux..."
+    brew install tmux
+
+    echo "==> Habilitando SSH (Remote Login)..."
+    sudo systemsetup -setremotelogin on
+
+    echo "==> Instalando Tailscale..."
+    brew install --cask tailscale
+
+    echo ""
+    echo "==> Tudo pronto!"
+    echo "    Abra o Tailscale na barra de menus e faça login."
+    echo "    Depois rode: tailscale ip"
+    echo "    Usuário SSH: $USER"
+    exit 0
+fi
+
+# --- Linux: detecta gerenciador de pacotes ---
 if command -v dnf &>/dev/null; then
     PKG="dnf"
     SSH_SERVICE="sshd"
@@ -9,7 +37,7 @@ elif command -v apt &>/dev/null; then
     PKG="apt"
     SSH_SERVICE="ssh"
 else
-    echo "Distro não suportada (esperado apt ou dnf)." >&2
+    echo "Distro não suportada (esperado apt, dnf ou macOS)." >&2
     exit 1
 fi
 

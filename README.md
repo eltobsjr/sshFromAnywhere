@@ -16,7 +16,7 @@ O Tailscale cria uma rede privada entre seus dispositivos. O SSH permite control
 
 ## Instalação rápida
 
-**Linux** (apt ou dnf) — uma linha, sem precisar clonar:
+**Linux** (apt ou dnf) **ou macOS** — uma linha, sem precisar clonar:
 ```bash
 curl -fsSL https://raw.githubusercontent.com/eltobsjr/sshFromAnywhere/main/init.sh | sh
 ```
@@ -49,9 +49,10 @@ Os scripts detectam o ambiente, instalam tudo e sobem o Tailscale automaticament
 ## Passo a passo (manual)
 
 1. [Instalação no Linux](tutoriais/01-instalacao.md) — OpenSSH, tmux e Tailscale
-2. [Instalação no Windows](tutoriais/04-windows.md) — OpenSSH, Tailscale e WSL
-3. [Configuração no celular](tutoriais/02-celular.md) — Tailscale + Termius
-4. [Usando o tmux](tutoriais/03-tmux.md) — sessões persistentes
+2. [Instalação no macOS](tutoriais/05-macos.md) — Homebrew, Remote Login e Tailscale
+3. [Instalação no Windows](tutoriais/04-windows.md) — OpenSSH, Tailscale e WSL
+4. [Configuração no celular](tutoriais/02-celular.md) — Tailscale + Termius
+5. [Usando o tmux](tutoriais/03-tmux.md) — sessões persistentes
 
 ---
 
