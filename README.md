@@ -16,16 +16,28 @@ O Tailscale cria uma rede privada entre seus dispositivos. O SSH permite control
 
 ## Instalação rápida
 
-**Linux** (apt ou dnf):
+**Linux** (apt ou dnf) — uma linha, sem precisar clonar:
 ```bash
-git clone https://github.com/eltobsjr/sshFromAnywhere
+curl -fsSL https://raw.githubusercontent.com/eltobsjr/sshFromAnywhere/main/init.sh | sh
+```
+
+Ou clonando:
+```bash
+git clone https://github.com/eltobsjr/sshFromAnywhere.git
 cd sshFromAnywhere
 ./init.sh
 ```
 
-**Windows** (PowerShell como Administrador):
+---
+
+**Windows** (PowerShell como Administrador) — uma linha:
 ```powershell
-git clone https://github.com/eltobsjr/sshFromAnywhere
+irm https://raw.githubusercontent.com/eltobsjr/sshFromAnywhere/main/init.ps1 | iex
+```
+
+Ou clonando:
+```powershell
+git clone https://github.com/eltobsjr/sshFromAnywhere.git
 cd sshFromAnywhere
 .\init.ps1
 ```
